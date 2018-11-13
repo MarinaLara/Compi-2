@@ -1,0 +1,9 @@
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\bin\Debug\Gocompi.exe.config
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\bin\Debug\Gocompi.exe
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\bin\Debug\Gocompi.pdb
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\obj\Debug\Gocompi.csprojResolveAssemblyReference.cache
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\obj\Debug\Gocompi.Form1.resources
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\obj\Debug\Gocompi.Properties.Resources.resources
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\obj\Debug\Gocompi.csproj.GenerateResource.Cache
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\obj\Debug\Gocompi.exe
+D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\obj\Debug\Gocompi.pdb
