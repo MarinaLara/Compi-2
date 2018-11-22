@@ -1,0 +1,49 @@
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\bin\Debug\go.exe.config
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\bin\Debug\go.exe
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\bin\Debug\go.pdb
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\obj\Debug\go.csprojResolveAssemblyReference.cache
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\obj\Debug\go.Properties.Resources.resources
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\obj\Debug\go.csproj.GenerateResource.cache
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\obj\Debug\go.csproj.CoreCompileInputs.cache
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\obj\Debug\go.exe
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\obj\Debug\go.pdb
+C:\Users\windows\Documents\Visual Studio 2017\Backup Files\go\go\obj\Debug\go.go.resources
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\obj\Debug\go.csprojResolveAssemblyReference.cache
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\obj\Debug\go.go.resources
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\obj\Debug\go.Properties.Resources.resources
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\obj\Debug\go.csproj.GenerateResource.cache
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\obj\Debug\go.csproj.CoreCompileInputs.cache
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\obj\Debug\go.exe
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\obj\Debug\go.pdb
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\bin\Debug\go.exe.config
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\bin\Debug\go.exe
+C:\Users\windows\Desktop\Entregables 2018\Lenguajes y automatas\go\go\bin\Debug\go.pdb
+C:\Users\windows\Documents\Visual Studio 2017\go\go\bin\Debug\go.exe.config
+C:\Users\windows\Documents\Visual Studio 2017\go\go\bin\Debug\go.exe
+C:\Users\windows\Documents\Visual Studio 2017\go\go\bin\Debug\go.pdb
+C:\Users\windows\Documents\Visual Studio 2017\go\go\obj\Debug\go.csprojResolveAssemblyReference.cache
+C:\Users\windows\Documents\Visual Studio 2017\go\go\obj\Debug\go.go.resources
+C:\Users\windows\Documents\Visual Studio 2017\go\go\obj\Debug\go.Properties.Resources.resources
+C:\Users\windows\Documents\Visual Studio 2017\go\go\obj\Debug\go.csproj.GenerateResource.cache
+C:\Users\windows\Documents\Visual Studio 2017\go\go\obj\Debug\go.csproj.CoreCompileInputs.cache
+C:\Users\windows\Documents\Visual Studio 2017\go\go\obj\Debug\go.exe
+C:\Users\windows\Documents\Visual Studio 2017\go\go\obj\Debug\go.pdb
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\go.exe.config
+D:\Escritorio\9veno Semestre\go compiler\go\go\obj\Debug\go.exe
+D:\Escritorio\9veno Semestre\go compiler\go\go\obj\Debug\go.pdb
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\go.exe
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\go.pdb
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\mscorlib.dll
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\System.Net.Http.dll
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\System.Net.Http.xml
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\es\mscorlib.resources.dll
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\es\System.Net.Http.resources.dll
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\normidna.nlp
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\normnfc.nlp
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\normnfd.nlp
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\normnfkc.nlp
+D:\Escritorio\9veno Semestre\go compiler\go\go\bin\Debug\normnfkd.nlp
+D:\Escritorio\9veno Semestre\go compiler\go\go\obj\Debug\go.csprojResolveAssemblyReference.cache
+D:\Escritorio\9veno Semestre\go compiler\go\go\obj\Debug\go.go.resources
+D:\Escritorio\9veno Semestre\go compiler\go\go\obj\Debug\go.Properties.Resources.resources
+D:\Escritorio\9veno Semestre\go compiler\go\go\obj\Debug\go.csproj.GenerateResource.Cache
