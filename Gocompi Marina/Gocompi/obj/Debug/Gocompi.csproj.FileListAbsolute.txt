@@ -10,3 +10,12 @@ D:\Documentos\Visual Studio 2012\Projects\Gocompi\Gocompi\obj\Debug\Gocompi.pdb
 D:\Documentos\GitHub\Compi-2\Gocompi\Gocompi\bin\Debug\Gocompi.exe.config
 D:\Documentos\GitHub\Compi-2\Gocompi\Gocompi\obj\Debug\Gocompi.exe
 D:\Documentos\GitHub\Compi-2\Gocompi\Gocompi\obj\Debug\Gocompi.pdb
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\bin\Debug\Gocompi.exe.config
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\obj\Debug\Gocompi.exe
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\obj\Debug\Gocompi.pdb
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\bin\Debug\Gocompi.exe
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\bin\Debug\Gocompi.pdb
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\obj\Debug\Gocompi.csprojResolveAssemblyReference.cache
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\obj\Debug\Gocompi.Form1.resources
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\obj\Debug\Gocompi.Properties.Resources.resources
+D:\Documentos\GitHub\Compi-2\Gocompi Marina\Gocompi\obj\Debug\Gocompi.csproj.GenerateResource.Cache

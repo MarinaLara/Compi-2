@@ -19,11 +19,11 @@ namespace Gocompi
             InitializeComponent();
         }
 
+
         #region 'variables'
         //VARIABLES PARA PESTAÑAS
         ArrayList ListaPestaña = new ArrayList();
         int ContarPestaña = 1;
-        int counter = 0;
 
         //Lexico
         int token = 0;
@@ -41,11 +41,11 @@ namespace Gocompi
 
         //Final de la Línea 
         public Boolean finaldeLinea = false;
-        int index = 0;
 
         public struct Tokenl
         {
             public string palabracadena { get; set; }
+            public string tipo { get; set; }
             public int Tkn { get; set; }
             public int acomuladorlineaL { get; set; }
 
@@ -53,14 +53,51 @@ namespace Gocompi
 
         public List<Tokenl> ListaTokens = new List<Tokenl>();
 
+        //sintactico
+        int puntero = 0;
+
+        string aux;
+        string tipo;
+        string unitario;
+
+
+
+        //Cola auxiliar de variable
+        Queue cola_var = new Queue();
+        Queue cola_var2 = new Queue();
+
+
+        //Lista de variables
+        Dictionary<string, string> list_var = new Dictionary<string, string>();
+
+                //----------------------------------------------------PREPARAR POSFIJO------------------------------------------------------------------
+
+        //Lista para ensamblador
+     
+        List<string> lista_posfijo = new List<string>();
+
+        //Pila de etiquetas para el posfijo
+        Stack<string> pila_etiquetas = new Stack<string>();
+        Stack<string> pila_BRF_A = new Stack<string>();
+        Stack<string> pila_BRI_B = new Stack<string>();
+        Stack<string> pila_BRF_C = new Stack<string>();
+        Stack<string> pila_BRI_D = new Stack<string>();
+        Stack<string> pila_BRF_E = new Stack<string>();
+        Stack<string> pila_BRI_F = new Stack<string>();
+        Stack<string> pila_Sentencia = new Stack<string>();
+        int cont_a = 0;
+        int cont_b = 0;
+        int cont_c = 0;
+        int cont_d = 0;
+        int cont_e = 0;
+        int cont_f = 0;
+        int cont_s = 0;
+        string vartip;
+
+        Stack <string> auxIncremento = new Stack<string>();
+        Stack <string> auxIncremento2= new Stack<string>();
+
         #endregion
-
-        public struct listaPost
-        {
-            public string p;
-            public string f;
-        }
-
 
         #region 'Otros'
         //CREAR NUEVA PESTAÑA
@@ -626,6 +663,433 @@ namespace Gocompi
         
         #endregion
 
+
+        #region 'Sintactico'
+
+        public void ana() 
+        {
+            if (ListaTokens[puntero].Tkn == 200)
+            {
+                puntero++;
+
+                //main
+                if (ListaTokens[puntero].Tkn == 201)
+                {
+                    puntero++;
+
+                    //func
+                    if (ListaTokens[puntero].Tkn == 202)
+                    {
+                        puntero++;
+
+                        //main
+                        if (ListaTokens[puntero].Tkn == 201)
+                        {
+                            puntero++;
+
+                            //(
+                            if (ListaTokens[puntero].Tkn == 106)
+                            {
+                                puntero++;
+
+                                //)
+                                if (ListaTokens[puntero].Tkn == 107)
+                                {
+                                    puntero++;
+                                    puntero = Bloque();
+                                }
+                                else
+                                {
+                                    llenafallasintaxis2();
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                llenafallasintaxis2();
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            llenafallasintaxis2();
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        llenafallasintaxis2();
+                        break;
+                    }
+                }
+                else
+                {
+                    llenafallasintaxis2();
+                    break;
+                }
+            }
+        }
+
+        public void llenafallasintaxis()
+        {
+
+            MessageBox.Show("Termino La Lista En " + lista_nodos[puntero].l + ", No Se Completo El Programa");
+        }
+
+        public int Statement_list()
+        {
+            try
+            {
+                /*             identificador                           if                              print                        scan           */
+                if (ListaTokens[puntero].Tkn == 100 || ListaTokens[puntero].Tkn == 209 || ListaTokens[puntero].Tkn == 203 || ListaTokens[puntero].Tkn == 204 || ListaTokens[puntero].Tkn == 211 || ListaTokens[puntero].Tkn == 210 || ListaTokens[puntero].Tkn == 101 || ListaTokens[puntero].Tkn == 102 || ListaTokens[puntero].Tkn == 205)
+                {
+                    puntero = Statement();
+                }
+            }
+            catch
+            {
+                llenafallasintaxis();
+            }
+            return puntero;
+        }
+
+        public int Statement()
+        {
+            try
+            {
+                /*             identificador                           if                              print                        scan                            else */
+                while (ListaTokens[puntero].Tkn == 100 || ListaTokens[puntero].Tkn == 209 || ListaTokens[puntero].Tkn == 203 || ListaTokens[puntero].Tkn == 204 || ListaTokens[puntero].Tkn == 210 || ListaTokens[puntero].Tkn == 101 || ListaTokens[puntero].Tkn == 102 || ListaTokens[puntero].Tkn == 211 || ListaTokens[puntero].Tkn == 205)
+                {
+
+                    //Declaracion de tipos 
+                    if (ListaTokens[puntero].Tkn == 205)
+                    {
+                        puntero = vardec1();
+                    }
+
+                    //Declaracion de la variable
+                    if (ListaTokens[puntero].Tkn == 100)
+                    {
+                        puntero = vardec();
+                    }
+                    //if
+                    else if (ListaTokens[puntero].Tkn == 209)
+                    {
+                        puntero = EsIf();
+
+                    }
+                    //else
+                    /*else if (ListaTokens[puntero].Tkn == 210)
+                    {
+                        puntero = EsElse();
+                    }*/
+                    //print
+                    else if (ListaTokens[puntero].Tkn == 203)
+                    {
+                        puntero = EsPrint();
+                    }
+                    //scan
+                    else if (ListaTokens[puntero].Tkn == 204)
+                    {
+                        puntero = EsScan();
+                    }
+                    //for
+                    else if (ListaTokens[puntero].Tkn == 211)
+                    {
+                        puntero = EsFor();
+
+                    }
+                    //Expresion numerica
+                    else if (ListaTokens[puntero].Tkn == 101 || ListaTokens[puntero].Tkn == 102)
+                    {
+                        puntero = exp_num();
+                    }
+
+                }
+            }
+            catch
+            {
+                llenafallasintaxis2();
+            }
+            return puntero;
+        }
+
+        public int vardec1()
+        {
+            try
+            {   //var
+                if (ListaTokens[puntero].Tkn == 205)
+                {
+                    puntero++;
+
+                    //id
+                    if (ListaTokens[puntero].Tkn == 100)
+                    {
+
+
+                        aux = ListaTokens[puntero].Tkn;
+                        cola_var.Enqueue(aux);
+                        puntero++;
+
+                        if (ListaTokens[puntero].Tkn == 206 || ListaTokens[puntero].Tkn == 207 || ListaTokens[puntero].Tkn == 208 || ListaTokens[puntero].Tkn == 218)
+                        {
+
+                            tipo = ListaTokens[puntero].Tkn;
+                            foreach (string variable in cola_var)
+                            {
+
+                                bool d = list_var.ContainsKey(variable);
+                                if (d == false)
+                                {
+                                    list_var.Add(variable, tipo);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Variable ya declarada: " + variable);
+                                }
+                            }
+                            cola_var.Clear();
+                            puntero++;
+                        }
+                        else if (ListaTokens[puntero].Tkn == 105)
+                        {
+                            vardec1aux();
+                        }
+                        else
+                        {
+                            llenafallasintaxis2();
+                        }
+
+                    }
+                    else
+                    {
+                        llenafallasintaxis2();
+                    }
+                }
+                else
+                {
+                    llenafallasintaxis2();
+                }
+            }
+            catch
+            {
+                llenafallasintaxis();
+            }
+
+            return puntero;
+        }
+
+        public int vardec1aux()
+        {
+            //id
+            if (ListaTokens[puntero].Tkn == 105)
+            {
+                puntero++;
+                if (ListaTokens[puntero].Tkn == 100)
+                {
+
+                    aux = ListaTokens[puntero].Tkn;
+                    cola_var.Enqueue(aux);
+                    puntero++;
+
+                    if (ListaTokens[puntero].Tkn == 105)
+                    {
+
+                        vardec1aux();
+                    }
+                    else if (ListaTokens[puntero].Tkn == 206 || ListaTokens[puntero].Tkn == 207 || ListaTokens[puntero].Tkn == 208 || ListaTokens[puntero].Tkn == 218)
+                    {
+                        tipo = aux = ListaTokens[puntero].Tkn;
+                        foreach (string variable in cola_var)
+                        {
+
+                            bool d = list_var.ContainsKey(variable);
+                            if (d == false)
+                            {
+                                list_var.Add(variable, tipo);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Variable ya declarada: " + variable);
+                            }
+                        }
+                        cola_var.Clear();
+
+                        puntero++;
+                    }
+                    else
+                    {
+                        llenafallasintaxis2();
+                    }
+                }
+                else
+                {
+                    llenafallasintaxis2();
+                }
+            }
+            else
+            {
+                llenafallasintaxis2();
+            }
+            return puntero;
+        }
+
+        public int EsIf()
+        {
+            var lp = new listPost();//******
+            try
+            {
+                // If
+                if (ListaTokens[puntero].Tkn == 209)
+                {
+                    //Etiquetas
+                    cont_a++;
+                    cont_b++;
+                    cont_s++;
+                    pila_BRF_A.Push("BRF-A" + cont_a);
+                    pila_BRI_B.Push("BRI-B" + cont_b);
+                    pila_etiquetas.Push("B" + cont_b);
+                    pila_etiquetas.Push("A" + cont_a);
+                    //pila_Sentencia se utiliza para agregar la etiqueta S"n" en la lista de postfijo:
+                    pila_Sentencia.Push("S" + cont_s);
+                    //pila_SentenciaAsm se utiliza para tomar el contador que se encuentra en la etiqueta S"n" en la lista de postfjio y utilizarla en las etiquetas del ensamblador:
+                    pila_SentenciaAsm.Enqueue(Convert.TknoString(cont_s));
+
+
+
+
+                    puntero++;
+                    //(
+                    if (ListaTokens[puntero].Tkn == 106)
+                    {
+                        puntero++;
+                        puntero = exp_log();
+
+
+                        //)
+                        if (ListaTokens[puntero].Tkn == 107)
+                        {
+                            //Para veciar la pila en la lista
+                            foreach (string a in pila_entrada)
+                            {
+                                lista_sistema_tipos.Add(a);
+                                lista_posfijo.Add(a);
+
+                                lp.p = a;//************
+                                lp.f = "operador";//************
+                                lt.Add(lp);//*******
+
+                            }
+
+                            //Es para borrar la pila y volver a ser la evaluacion
+                            pila_entrada.Clear();
+
+                            //--------------------------------¡¡¡¡¡¡¡¡¡¡¡METER SISTEMA DE TIPO AQUI!!!!!!!!!!!!---------------------------------
+                            SistemaDeTipos();
+                            //------------------------------------------------------------------------------------------------------------------
+
+
+                            //Es para borrar la lista y volver a ser la evaluacion
+                            pila_entrada.Clear();
+                            lista_sistema_tipos.Clear();
+
+
+
+                            lista_posfijo.Add(pila_BRF_A.Peek());
+                            lp.p = pila_BRF_A.Peek();//************
+                            lp.f = "etiqueta";//************
+                            lt.Add(lp);//*******
+                            pila_BRF_A.Pop();
+
+                            puntero++;
+
+                            //{
+                            if (ListaTokens[puntero].Tkn == 108)
+                            {
+
+
+                                lp.p = pila_Sentencia.Peek();//************
+                                lp.f = "sentencia";//************
+                                lt.Add(lp);//*******
+                                pila_Sentencia.Pop();
+
+                                puntero++;
+                                Statement();
+
+                                //}
+                                if (ListaTokens[puntero].Tkn == 109)
+                                {
+                                    lista_posfijo.Add(pila_BRI_B.Peek());
+                                    lp.p = pila_BRI_B.Peek();//************
+                                    lp.f = "etiqueta";//************
+                                    lt.Add(lp);//*******
+                                    pila_BRI_B.Pop();
+
+                                    lista_posfijo.Add(pila_etiquetas.Peek());
+                                    lp.p = pila_etiquetas.Peek();//************
+                                    lp.f = "apuntador";//************
+                                    lt.Add(lp);//*******
+                                    pila_etiquetas.Pop();
+
+                                    puntero++;
+
+                                    if (ListaTokens[puntero].Tkn == 210)
+                                    {
+                                        cont_s++;
+                                        //pila_Sentencia se utiliza para agregar la etiqueta S"n" en la lista de postfijo:
+                                        pila_Sentencia.Push("S" + cont_s);
+                                        //pila_SentenciaAsm se utiliza para tomar el contador que se encuentra en la etiqueta S"n" en la lista de postfjio y utilizarla en las etiquetas del ensamblador:
+                                        pila_SentenciaAsm.Enqueue(Convert.TknoString(cont_s));
+
+                                        lp.p = pila_Sentencia.Peek();//************
+                                        lp.f = "sentencia";//************
+                                        lt.Add(lp);//*******
+                                        pila_Sentencia.Pop();
+
+                                        puntero = EsElse();
+                                    }
+
+                                    lista_posfijo.Add(pila_etiquetas.Peek());
+                                    lp.p = pila_etiquetas.Peek();//************
+                                    lp.f = "apuntador";//************
+                                    lt.Add(lp);//*******
+                                    pila_etiquetas.Pop();
+
+
+                                }
+                                else
+                                {
+                                    llenafallasintaxis2();
+                                }
+                            }
+                            else
+                            {
+                                llenafallasintaxis2();
+                            }
+                        }
+                        else
+                        {
+                            llenafallasintaxis2();
+                        }
+
+                    }
+                    else
+                    {
+                        llenafallasintaxis2();
+                    }
+                }
+                else
+                {
+                    llenafallasintaxis2();
+                }
+            }
+            catch
+            {
+                llenafallasintaxis();
+            }
+            return puntero;
+        }
+        #endregion
 
 
     }
